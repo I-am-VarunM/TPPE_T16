@@ -147,7 +147,7 @@ module tppe #(
     );
     
     LIF_Model #(
-    .T(8),  
+        .T(16),  
     .Q(8)  
 )(.result_val(result_valid),.clk(clk), .rst_n(rst_lif), .input_data({result_0, result_1, result_2, result_3}), .threshold(8'b00001111), .spike_out(lif_output),.lif_done(lif_done));
     
