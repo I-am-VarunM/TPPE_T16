@@ -31,6 +31,18 @@ module tppe #(
     output wire [CORRECTION_ACC_WIDTH-1:0] result_1, 
     output wire [CORRECTION_ACC_WIDTH-1:0] result_2,
     output wire [CORRECTION_ACC_WIDTH-1:0] result_3,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_4,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_5, 
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_6,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_7,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_8,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_9, 
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_10,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_11,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_12,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_13, 
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_14,
+    output wire [CORRECTION_ACC_WIDTH-1:0] result_15,
     
     output wire ready_for_input,
     output wire [TIMESTEPS-1:0]lif_output
@@ -147,9 +159,9 @@ module tppe #(
     );
     
     LIF_Model #(
-        .T(16),  
-    .Q(8)  
-)(.result_val(result_valid),.clk(clk), .rst_n(rst_lif), .input_data({result_0, result_1, result_2, result_3}), .threshold(8'b00001111), .spike_out(lif_output),.lif_done(lif_done));
+    .T(TIMESTEPS),  
+    .Q(CORRECTION_ACC_WIDTH)  
+)(.result_val(result_valid),.clk(clk), .rst_n(rst_lif), .input_data({result_0, result_1, result_2, result_3, result_4,result_5, result_6, result_7, result_8, result_9,result_10,result_11, result_12, result_13, result_14, result_15}), .threshold(10'b0000011111), .spike_out(lif_output),.lif_done(lif_done));
     
     // Connect FIFO read enables from accumulator to laggy prefix
     // In the current implementation of accumulator_correction, we don't have separate
