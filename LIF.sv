@@ -1,6 +1,6 @@
 module LIF_Model #(
     parameter T = 16,  // Number of time steps
-    parameter Q = 8   // Bits for quantization
+    parameter Q = 10   // Bits for quantization
 ) (
     input logic result_val,
     input  logic        clk,
