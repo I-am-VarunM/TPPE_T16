@@ -1,5 +1,5 @@
 module LIF_Model #(
-    parameter T = 8,  // Number of time steps
+    parameter T = 16,  // Number of time steps
     parameter Q = 10   // Bits for quantization
 ) (
     input wire result_val,
